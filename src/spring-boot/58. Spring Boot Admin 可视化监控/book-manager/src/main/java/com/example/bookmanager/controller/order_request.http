@@ -1,0 +1,26 @@
+### 环境变量：dev（默认）
+GET {{base_url}}/actuator/health
+
+### 创建订单（POST）
+POST {{base_url}}/api/orders
+Authorization: Bearer 123456
+Content-Type: application/json
+
+{
+  "items": [
+    { "bookId": 2, "quantity": 2 },
+    { "bookId": 3, "quantity": 1 }
+  ]
+}
+
+### 查询单个订单（含订单项及图书详情）（GET /{id}）
+GET {{base_url}}/api/orders/9
+Authorization: Bearer 123456
+
+### 查询所有订单（含订单项及图书详情）（GET /orders）
+GET {{base_url}}/api/orders
+Authorization: Bearer 123456
+
+### 取消订单（PUT /{id}/cancel）
+PUT {{base_url}}/api/orders/1/cancel
+Authorization: Bearer 123456

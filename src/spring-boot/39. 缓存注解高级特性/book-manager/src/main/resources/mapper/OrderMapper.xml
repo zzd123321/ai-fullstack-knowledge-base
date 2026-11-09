@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.bookmanager.mapper.OrderMapper">
+    <sql id="Order_Column_List">
+        id, order_number, total_amount, status, created_at, updated_at
+    </sql>
+
+    <resultMap id="OrderResultMap" type="Order">
+        <id property="id" column="id"/>
+        <result property="orderNumber" column="order_number"/>
+        <result property="totalAmount" column="total_amount"/>
+        <result property="status" column="status"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <resultMap id="OrderWithItemsMap" type="Order" extends="OrderResultMap">
+        <collection property="items" ofType="OrderItem"
+                    select="com.example.bookmanager.mapper.OrderItemMapper.selectByOrderId"
+                    column="id" fetchType="lazy"/>
+    </resultMap>
+
+    <!-- 一次性 JOIN 加载（避免 N+1） -->
+    <resultMap id="OrderWithItemsJoinMap" type="Order" extends="OrderResultMap">
+        <collection property="items" ofType="OrderItem">
+            <id property="id" column="oi_id"/>
+            <result property="quantity" column="quantity"/>
+            <result property="price" column="price"/>
+            <result property="orderId" column="order_id"/>
+            <result property="bookId" column="book_id"/>
+            <association property="book" javaType="Book">
+                <id property="id" column="b_id"/>
+                <result property="title" column="b_title"/>
+                <result property="author" column="b_author"/>
+                <result property="price" column="b_price"/>
+                <result property="stock" column="b_stock"/>
+                <result property="sales" column="b_sales"/>
+                <result property="category" column="b_category"/>
+                <result property="isbn" column="b_isbn"/>
+                <result property="description" column="b_description"/>
+                <result property="createdAt" column="b_created_at"/>
+                <result property="updatedAt" column="b_updated_at"/>
+            </association>
+        </collection>
+    </resultMap>
+
+
+    <select id="selectAll" resultMap="OrderResultMap">
+        SELECT <include refid="Order_Column_List"/> FROM orders ORDER BY created_at DESC
+    </select>
+
+    <select id="selectById" resultMap="OrderResultMap">
+        SELECT <include refid="Order_Column_List"/> FROM orders WHERE id = #{id}
+    </select>
+
+    <select id="selectOrderWithItems" resultMap="OrderWithItemsJoinMap">
+        SELECT
+            o.id, o.order_number, o.total_amount, o.status, o.created_at, o.updated_at,
+            oi.id AS oi_id, oi.quantity, oi.price, oi.order_id, oi.book_id,
+            b.id AS b_id, b.title AS b_title, b.author AS b_author,
+            b.price AS b_price, b.stock AS b_stock, b.sales AS b_sales,
+            b.category AS b_category, b.isbn AS b_isbn, b.description AS b_description,
+            b.created_at AS b_created_at, b.updated_at AS b_updated_at
+        FROM orders o
+                 LEFT JOIN order_item oi ON o.id = oi.order_id
+                 LEFT JOIN book b ON oi.book_id = b.id
+        WHERE o.id = #{id}
+    </select>
+
+    <select id="selectAllWithItems" resultMap="OrderWithItemsJoinMap">
+        SELECT
+            o.id, o.order_number, o.total_amount, o.status, o.created_at, o.updated_at,
+            oi.id AS oi_id, oi.quantity, oi.price, oi.order_id, oi.book_id,
+            b.id AS b_id, b.title AS b_title, b.author AS b_author,
+            b.price AS b_price, b.stock AS b_stock, b.sales AS b_sales,
+            b.category AS b_category, b.isbn AS b_isbn, b.description AS b_description,
+            b.created_at AS b_created_at, b.updated_at AS b_updated_at
+        FROM orders o
+                 LEFT JOIN order_item oi ON o.id = oi.order_id
+                 LEFT JOIN book b ON oi.book_id = b.id
+        ORDER BY o.created_at DESC
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO orders (order_number, total_amount, status)
+        VALUES (#{orderNumber}, #{totalAmount}, #{status})
+    </insert>
+
+    <update id="update">
+        UPDATE orders SET total_amount=#{totalAmount}, status=#{status}, updated_at=CURRENT_TIMESTAMP WHERE id=#{id}
+    </update>
+
+    <delete id="deleteById">DELETE FROM orders WHERE id=#{id}</delete>
+
+    <select id="searchOrders" resultMap="OrderResultMap">
+        SELECT <include refid="Order_Column_List"/> FROM orders
+        <where>
+            <if test="status != null and status != ''">AND status = #{status}</if>
+            <if test="startDate != null">AND created_at >= #{startDate}</if>
+            <if test="endDate != null">AND created_at &lt;= #{endDate}</if>
+        </where>
+        ORDER BY created_at DESC
+    </select>
+</mapper>

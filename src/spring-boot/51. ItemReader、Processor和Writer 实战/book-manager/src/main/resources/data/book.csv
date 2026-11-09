@@ -1,0 +1,9 @@
+title,author,price,stock
+Spring Boot 实战,Craig Walls,79.00,10
+Java 核心技术,Cay S. Horstmann,89.00,8
+深入理解 Java 虚拟机,周志明,129.00,5
+Effective Java,Joshua Bloch,99.00,6
+Spring 源码深度解析,郝佳,99.00,3
+Invalid Book,,50.00,2
+Negative Price Book,Test Author,-10.00,5
+零库存图书,Test Author,45.00,0

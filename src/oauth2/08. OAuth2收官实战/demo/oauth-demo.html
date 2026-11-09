@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>OAuth2 授权码+PKCE 纯前端演示</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+        .btn { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        .status { margin: 10px 0; font-weight: bold; }
+        .log { background: #f4f4f4; padding: 10px; font-family: monospace; font-size: 12px; height: 150px; overflow-y: auto; white-space: pre-wrap; }
+        .token-box, .user-box { background: #fafafa; padding: 10px; margin: 10px 0; border: 1px solid #ddd; word-break: break-all; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<h2>🔐 OAuth2 授权码模式 + PKCE（纯前端）</h2>
+
+<div>
+    <button class="btn" id="loginBtn">登录</button>
+    <button class="btn" id="logoutBtn" disabled>退出</button>
+    <span class="status" id="statusText">就绪</span>
+</div>
+
+<h3>令牌信息</h3>
+<div id="tokenDisplay" class="token-box">无</div>
+
+<h3>用户信息</h3>
+<div id="userDisplay" class="token-box">无</div>
+
+<h3>日志</h3>
+<div id="logArea" class="log">[系统] 就绪</div>
+
+<script>
+    // ========== 配置 ==========
+    const CONFIG = {
+        AUTHORIZE_URL: 'https://oauth-mock.mock.beeceptor.com/oauth/authorize',
+        TOKEN_URL: 'https://oauth-mock.mock.beeceptor.com/oauth/token/google',
+        USERINFO_URL: 'https://oauth-mock.mock.beeceptor.com/userinfo/google',
+        CLIENT_ID: 'oauth-demo-app',
+        CLIENT_SECRET: 'dummy-secret',
+        SCOPE: 'openid profile email',
+        REDIRECT_URI: window.location.origin + window.location.pathname
+    };
+
+    // ========== 状态 ==========
+    let state = {
+        accessToken: null,
+        idToken: null,
+        userInfo: null,
+        codeVerifier: null,
+        isAuthenticated: false,
+        isLoggingIn: false
+    };
+
+    // ========== DOM 引用 ==========
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const statusText = document.getElementById('statusText');
+    const tokenDisplay = document.getElementById('tokenDisplay');
+    const userDisplay = document.getElementById('userDisplay');
+    const logArea = document.getElementById('logArea');
+
+    // ========== 日志 ==========
+    function log(msg, type = 'info') {
+        const prefix = `[${new Date().toLocaleTimeString()}]`;
+        logArea.innerHTML += `\n${prefix} ${msg}`;
+        logArea.scrollTop = logArea.scrollHeight;
+    }
+
+    // ========== UI 更新 ==========
+    function updateUI() {
+        if (state.isAuthenticated) {
+            loginBtn.disabled = true;
+            logoutBtn.disabled = false;
+            statusText.textContent = '已登录';
+            tokenDisplay.innerHTML = state.accessToken ? `Access Token: ${state.accessToken}` : '无';
+            if (state.userInfo) {
+                userDisplay.innerHTML = JSON.stringify(state.userInfo, null, 2);
+            } else {
+                userDisplay.textContent = '无用户信息';
+            }
+        } else {
+            loginBtn.disabled = false;
+            logoutBtn.disabled = true;
+            statusText.textContent = '未登录';
+            tokenDisplay.textContent = '无';
+            userDisplay.textContent = '无';
+        }
+    }
+
+    // ========== PKCE 工具（第5讲） ==========
+    function generateRandomString(length = 64) {
+        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~';
+        const arr = new Uint8Array(length);
+        crypto.getRandomValues(arr);
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += charset[arr[i] % charset.length];
+        }
+        return result;
+    }
+
+    async function sha256(plain) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(plain);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        const base64 = btoa(String.fromCharCode(...new Uint8Array(hash)));
+        return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    }
+
+    // ========== 发起登录 ==========
+    async function doLogin() {
+        if (state.isLoggingIn || state.isAuthenticated) return;
+
+        // 检查协议
+        if (window.location.protocol === 'file:') {
+            alert('错误：请使用 HTTP 服务器（如 Live Server 或 Python http.server）打开此页面，不能直接双击。');
+            log('❌ file:// 协议不支持 OAuth2 回调', 'error');
+            return;
+        }
+
+        state.isLoggingIn = true;
+        log('🔑 开始登录流程...');
+
+        try {
+            // 生成 PKCE 参数
+            const verifier = generateRandomString(64);
+            const challenge = await sha256(verifier);
+            state.codeVerifier = verifier;
+            log('✅ PKCE 参数已生成');
+
+            // 生成 state
+            const stateParam = generateRandomString(16);
+            sessionStorage.setItem('oauth_verifier', verifier);
+            sessionStorage.setItem('oauth_state', stateParam);
+
+            // 构造授权 URL
+            const url = new URL(CONFIG.AUTHORIZE_URL);
+            url.searchParams.set('response_type', 'code');
+            url.searchParams.set('client_id', CONFIG.CLIENT_ID);
+            url.searchParams.set('redirect_uri', CONFIG.REDIRECT_URI);
+            url.searchParams.set('scope', CONFIG.SCOPE);
+            url.searchParams.set('state', stateParam);
+            url.searchParams.set('code_challenge', challenge);
+            url.searchParams.set('code_challenge_method', 'S256');
+
+            log('🔗 跳转到授权服务器...');
+            window.location.href = url.toString();
+        } catch (err) {
+            log('❌ 错误: ' + err.message);
+            state.isLoggingIn = false;
+            updateUI();
+        }
+    }
+
+    // ========== 处理回调 ==========
+    async function handleCallback() {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        const stateParam = params.get('state');
+        const error = params.get('error');
+
+        if (!code) return;
+
+        if (error) {
+            log('❌ 授权错误: ' + error);
+            window.history.replaceState({}, '', window.location.pathname);
+            return;
+        }
+
+        log('📥 收到授权码: ' + code.substring(0, 12) + '...');
+
+        try {
+            const verifier = sessionStorage.getItem('oauth_verifier');
+            if (!verifier) throw new Error('缺少 code_verifier');
+
+            // 验证 state（CSRF 防护）
+            const savedState = sessionStorage.getItem('oauth_state');
+            if (savedState && stateParam && savedState !== stateParam) {
+                throw new Error('State 不匹配，可能 CSRF 攻击');
+            }
+            log('✅ State 验证通过');
+
+            // 换取 Token
+            const resp = await fetch(CONFIG.TOKEN_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    grant_type: 'authorization_code',
+                    code: code,
+                    redirect_uri: CONFIG.REDIRECT_URI,
+                    client_id: CONFIG.CLIENT_ID,
+                    client_secret: CONFIG.CLIENT_SECRET,
+                    code_verifier: verifier
+                }).toString()
+            });
+
+            if (!resp.ok) throw new Error('Token 换取失败: ' + resp.status);
+            const tokenData = await resp.json();
+            state.accessToken = tokenData.access_token;
+            state.idToken = tokenData.id_token || null;
+            log('✅ Access Token 获取成功');
+
+            // 获取用户信息
+            const userResp = await fetch(CONFIG.USERINFO_URL, {
+                headers: { 'Authorization': 'Bearer ' + state.accessToken }
+            });
+            if (!userResp.ok) throw new Error('获取用户信息失败');
+            state.userInfo = await userResp.json();
+            log('👤 用户: ' + (state.userInfo.name || '未知'));
+
+            state.isAuthenticated = true;
+            state.isLoggingIn = false;
+            sessionStorage.removeItem('oauth_verifier');
+            sessionStorage.removeItem('oauth_state');
+            window.history.replaceState({}, '', window.location.pathname);
+            updateUI();
+            log('✅ 登录完成');
+
+        } catch (err) {
+            log('❌ 错误: ' + err.message);
+            window.history.replaceState({}, '', window.location.pathname);
+            updateUI();
+        }
+    }
+
+    // ========== 退出 ==========
+    function doLogout() {
+        state.accessToken = null;
+        state.idToken = null;
+        state.userInfo = null;
+        state.isAuthenticated = false;
+        state.isLoggingIn = false;
+        sessionStorage.removeItem('oauth_verifier');
+        sessionStorage.removeItem('oauth_state');
+        updateUI();
+        log('🚪 已退出');
+    }
+
+    // ========== 事件绑定 ==========
+    loginBtn.addEventListener('click', doLogin);
+    logoutBtn.addEventListener('click', doLogout);
+
+    // ========== 启动 ==========
+    // 检查是否有回调参数
+    if (window.location.search.includes('code=')) {
+        handleCallback();
+    } else {
+        log('💡 点击「登录」开始');
+    }
+
+    updateUI();
+
+    // 调试
+    window.__state = state;
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+### 环境变量：dev（默认）
+GET {{base_url}}/actuator/health
+
+### ==================== 基础 CRUD ====================
+
+### 1.1 创建图书（POST）
+POST {{base_url}}/api/books
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "test",
+  "author": "Craig Walls",
+  "price": 79.00,
+  "stock": 10,
+  "category": "编程",
+  "isbn": "978-7-111-12345-6",
+  "description": "Spring Boot 入门经典"
+}
+
+### 1.2 查询所有图书（GET）
+GET {{base_url}}/api/books
+Authorization: Bearer 123456
+
+### 1.3 查询单本图书（GET /{id}）
+GET {{base_url}}/api/books/4
+Authorization: Bearer 123456
+
+### 1.4 更新图书（PUT /{id}）
+PUT {{base_url}}/api/books/4
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "test-updated",
+  "author": "Craig Walls",
+  "price": 89.00,
+  "stock": 8,
+  "category": "编程",
+  "isbn": "978-7-111-12345-6",
+  "description": "Spring Boot 进阶"
+}
+
+### 1.5 删除图书（DELETE /{id}）
+DELETE {{base_url}}/api/books/9
+Authorization: Bearer 123456
+
+### ==================== 查询扩展 ====================
+
+### 2.1 多条件搜索图书（GET /search）
+### 按作者模糊查询
+GET {{base_url}}/api/books/search?author=Craig
+Authorization: Bearer 123456
+
+### 按分类精确查询
+GET {{base_url}}/api/books/search?category=编程
+Authorization: Bearer 123456
+
+### 价格区间查询
+GET {{base_url}}/api/books/search?minPrice=50&maxPrice=100
+Authorization: Bearer 123456
+
+### 组合条件（作者+分类+价格）
+GET {{base_url}}/api/books/search?author=Craig&category=编程&minPrice=50&maxPrice=100
+Authorization: Bearer 123456
+
+### 无条件返回全部
+GET {{base_url}}/api/books/search
+Authorization: Bearer 123456
+
+### 2.2 复杂搜索（GET /complex）
+### 关键字模糊匹配（标题或作者）
+GET {{base_url}}/api/books/complex?keyword=Spring
+Authorization: Bearer 123456
+
+### 关键字 + 分类
+GET {{base_url}}/api/books/complex?keyword=Spring&category=编程
+Authorization: Bearer 123456
+
+### 关键字 + 分类 + 价格区间（且库存>0）
+GET {{base_url}}/api/books/complex?keyword=Spring&category=编程&minPrice=50&maxPrice=100
+Authorization: Bearer 123456
+
+### 仅价格区间
+GET {{base_url}}/api/books/complex?minPrice=60&maxPrice=90
+Authorization: Bearer 123456
+
+### 2.3 根据书名精确查询（GET /title）
+GET {{base_url}}/api/books/title?title=Spring实战
+Authorization: Bearer 123456
+
+### 2.4 统计某分类下的图书数量（GET /count）
+GET {{base_url}}/api/books/count?category=技术
+Authorization: Bearer 123456
+
+### 2.5 批量更新某分类下所有图书的价格（PUT /price/batch）
+### 将“编程”分类的所有图书价格乘以 1.2（涨价20%）
+PUT {{base_url}}/api/books/price/batch?category=编程&multiplier=1.2
+Authorization: Bearer 123456
+
+### 将“文学”分类所有图书价格乘以 0.9（降价10%）
+PUT {{base_url}}/api/books/price/batch?category=文学&multiplier=0.9
+Authorization: Bearer 123456
+
+### 2.6 分页查询图书（GET /page）
+### 第1页，每页10条，无过滤
+GET {{base_url}}/api/books/page?pageNum=1&pageSize=10
+Authorization: Bearer 123456
+
+### 第2页，每页5条，按作者过滤
+GET {{base_url}}/api/books/page?pageNum=2&pageSize=5&author=Craig
+Authorization: Bearer 123456
+
+### 按分类过滤，按创建时间倒序（由 Service 控制）
+GET {{base_url}}/api/books/page?pageNum=1&pageSize=20&category=编程
+Authorization: Bearer 123456
+
+### 作者 + 分类组合过滤
+GET {{base_url}}/api/books/page?pageNum=1&pageSize=10&author=Craig&category=编程
+Authorization: Bearer 123456

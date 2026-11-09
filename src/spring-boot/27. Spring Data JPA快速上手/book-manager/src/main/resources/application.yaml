@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: book-manager
+
+---
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bookdb
+    username: postgres
+    password: admin
+
+    jpa:
+      # 控制台显示 SQL
+      show-sql: true
+      # 自动建表策略
+      hibernate:
+        ddl-auto: update
+      # 数据库方言
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          format_sql: true
+          use_sql_comments: true
+          jdbc:
+            lob:
+              non_contextual_creation: true

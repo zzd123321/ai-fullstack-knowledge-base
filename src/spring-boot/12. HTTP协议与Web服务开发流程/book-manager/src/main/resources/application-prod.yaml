@@ -1,0 +1,10 @@
+server:
+  port: 9090
+
+logging:
+  level:
+    com.example.bookmanager: WARN
+
+app:
+  author: 运维团队
+  description: 生产环境 - 使用数据库存储

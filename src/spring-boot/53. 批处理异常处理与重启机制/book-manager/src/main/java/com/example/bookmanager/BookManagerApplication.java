@@ -1,0 +1,18 @@
+package com.example.bookmanager;
+
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+@SpringBootApplication
+@MapperScan("com.example.bookmanager.mapper")
+public class BookManagerApplication {
+
+	public static void main(String[] args) {
+
+		SpringApplication.run(BookManagerApplication.class, args);
+	}
+}

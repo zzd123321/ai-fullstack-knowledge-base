@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: book-manager
+
+
+app:
+  weather:
+    api-key: 9db5db4a51a855dbebdb87210f44c993
+    url: https://api.openweathermap.org/data/2.5/weather

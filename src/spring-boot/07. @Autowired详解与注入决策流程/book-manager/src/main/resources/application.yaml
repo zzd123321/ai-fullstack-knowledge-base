@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: book-manager
+
+---
+
+spring:
+  profiles:
+    active: prod
+
+app:
+  name: 图书管理系统
+  version: 1.0.0
+#  welcome-message: 欢迎来到图书管理系统
+  author: 技术团队
+  features:
+    - 图书管理
+    - 用户管理
+    - 统计分析
+  contact:
+    email: admin@example.com
+    phone: 010-12345678

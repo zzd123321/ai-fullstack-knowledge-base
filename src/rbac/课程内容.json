@@ -1,0 +1,42 @@
+{
+  "title": "RBAC权限模型",
+  "author": "郑天民",
+  "description": "本课程系统讲解RBAC（基于角色的访问控制）授权模型核心理论、设计范式与落地实践，助你构建灵活、可扩展且安全合规的企业级权限体系。",
+  "playerPath": "AI大全栈 / 通识 / RBAC",
+  "resourceUrl": "https://gitee.com/dev-edu/rbac",
+  "skills": [
+    "权限模型",
+    "RBAC",
+    "用户",
+    "角色",
+    "权限",
+    "数据库模式",
+    "API设计",
+    "OAuth2融合",
+    "案例实战"
+  ],
+  "type": "录播",
+  "status": "已上架",
+  "catalog": [
+    {
+      "title": "权限控制的需求和实现模型",
+      "showIndex": true
+    },
+    {
+      "title": "RBAC核心模型：用户、角色和权限",
+      "showIndex": true
+    },
+    {
+      "title": "RBAC数据库设计",
+      "showIndex": true
+    },
+    {
+      "title": "RBAC API接口层设计",
+      "showIndex": true
+    },
+    {
+      "title": "RBAC收官实战",
+      "showIndex": true
+    }
+  ]
+}

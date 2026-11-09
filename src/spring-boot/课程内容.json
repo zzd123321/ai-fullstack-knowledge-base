@@ -1,0 +1,372 @@
+{
+  "title": "单体系统和Spring Boot",
+  "author": "郑天民",
+  "description": "面向全栈应用开发，这门Spring Boot课程精心提炼了必备的Spring生态技术栈。以框架内核与设计思想为纲，以项目实战为轴，让您充分拥抱AI Coding时代，用Spring Boot框架从容应对全栈开发需求。",
+  "playerPath": "AI大全栈 / Java / Spring Boot",
+  "resourceUrl": "gitee.com/dev-edu/spring-boot",
+  "skills": [
+	"Spring",
+    "Spring Boot",
+    "Web应用结构",
+    "分层架构",
+    "配置体系",
+    "Starter机制",
+    "依赖注入",
+	"循环依赖",
+	"AOP",
+	"动态代理",
+	"Spring AOP",
+	"HTTP协议",
+	"Web服务",
+	"Servlet",
+	"WebMVC",
+	"Controller",
+	"参数绑定",
+	"参数校验",
+	"响应封装",
+	"全局异常处理",
+	"过滤器",
+	"拦截器",
+	"OpenAPI规范",
+	"REST API文档",
+	"RestTemplate",
+	"响应式编程",
+	"WebFlux",
+	"WebClient",
+	"JDBC规范",
+	"Spring JDBC",
+	"JdbcTemplate",
+	"SimpleJdbcInsert",
+	"模板方法和回调机制",
+	"手写JdbcTemplate",
+	"事务管理",
+	"TransactionTemplate",
+	"@Transactional",
+	"ORM框架",
+	"Spring Data架构",
+	"Spring Data JPA",
+	"方法命名查询",
+	"@Query注解",
+	"分页与排序",
+	"关联映射和查询",
+	"MyBatis整体架构",
+	"MyBatis映射文件",
+	"MyBatis动态SQL",
+	"MyBatis分页插件",
+	"MyBatis缓存机制",
+	"MyBatis-Plus",
+	"MyBatis-Plus条件构造器",
+	"MyBatis-Plus分页插件",
+	"MyBatis-Plus通用Service组件",
+	"MyBatis-Plus乐观锁",
+	"MyBatis-Plus代码生成器",
+	"本地缓存",
+	"Spring Cache架构",
+	"Spring Cache注解",
+	"CacheManager",
+	"Caffeine本地缓存",
+	"缓存注解高级特性",
+	"自定义缓存键",
+	"缓存实现原理",
+	"自定义缓存",
+	"缓存穿透",
+	"缓存击穿",
+	"缓存雪崩",
+	"缓存一致性",
+	"异步处理",
+	"Spring Async",
+	"任务执行器",
+	"异步线程池",
+	"异步返回值",
+	"CompletableFuture",
+	"异步异常处理",
+	"事件驱动架构",
+	"Spring异步事件",
+	"Web异步处理",
+	"WebAsyncTask",
+	"调度任务",
+	"TaskScheduler",
+	"@Scheduled注解",
+	"Cron表达式",
+	"批处理机制",
+	"Spring Batch",
+	"ItemReader",
+	"ItemProcessor",
+	"ItemWriter",
+	"JobRepository",
+	"批处理元数据",
+	"批处理跳过处理",
+	"批处理重试机制",
+	"批处理断点续传",
+	"批处理监听器",
+	"批处理集成任务调度",
+	"系统监控",
+	"Spring Boot Actuator",
+	"健康检查和健康指示器",
+	"指标监控",
+	"Micrometer",
+	"Spring Boot Admin",
+	"Spring Boot测试体系",
+	"JUnit",
+	"Mock测试机制",
+	"Mockito",
+	"Web层测试",
+	"@WebMvcTest注解",
+	"数据层测试",
+	"@MybatisPlusTest注解",
+	"端到端集成测试",
+	"@SpringBootTest注解"
+  ],
+  "type": "录播",
+  "status": "已上架",
+  "catalog": [
+    {
+      "title": "课程导言",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Boot概述与快速入门",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Boot应用程序结构与分层设计",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Boot配置体系",
+      "showIndex": true
+    },
+	{
+      "title": "自动配置原理与Starter机制",
+      "showIndex": true
+    },
+	{
+      "title": "依赖注入基本概念与三种注入方式",
+      "showIndex": true
+    },
+	{
+      "title": "循环依赖与三级缓存机制",
+      "showIndex": true
+    },
+	{
+      "title": "AOP编程思想与动态代理机制",
+      "showIndex": true
+    },
+	{
+      "title": " Spring AOP实战：日志切面",
+      "showIndex": true
+    },
+	{
+      "title": "Spring AOP实战：性能监控与异常处理",
+      "showIndex": true
+    },
+	{
+      "title": "HTTP协议与Web服务开发流程",
+      "showIndex": true
+    },
+	{
+      "title": "Servlet与Spring WebMVC架构解析",
+      "showIndex": true
+    },
+	{
+      "title": "REST API开发：请求映射与参数处理",
+      "showIndex": true
+    },
+	{
+      "title": "REST API开发：响应封装和全局异常处理",
+      "showIndex": true
+    },
+	{
+      "title": "REST API高级：过滤器与拦截器实战",
+      "showIndex": true
+    },
+	{
+      "title": "REST API文档自动生成与API规范",
+      "showIndex": true
+    },
+	{
+      "title": "RestTemplate与服务间调用",
+      "showIndex": true
+    },
+	{
+      "title": "Spring WebFlux编程模型与实战",
+      "showIndex": true
+    },
+	{
+      "title": "JDBC规范解析",
+      "showIndex": true
+    },
+	{
+      "title": "Spring JDBC解决方案与JdbcTemplate基础",
+      "showIndex": true
+    },
+	{
+      "title": "JdbcTemplate高级操作与SimpleJdbcInsert",
+      "showIndex": true
+    },
+	{
+      "title": "自己动手写一个JdbcTemplate",
+      "showIndex": true
+    },
+	{
+      "title": "Spring事务管理基础",
+      "showIndex": true
+    },
+	{
+      "title": "Spring声明式事务与事务传播",
+      "showIndex": true
+    },
+	{
+      "title": "ORM核心概念与Spring Data架构",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Data JPA快速上手",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Data JPA高级查询",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Data JPA关联映射与实战",
+      "showIndex": true
+    },
+	{
+      "title": "MyBatis 概述与 Spring Boot 集成",
+      "showIndex": true
+    },
+	{
+      "title": "MyBatis 映射文件与动态 SQL",
+      "showIndex": true
+    },
+	{
+      "title": "MyBatis 高级特性",
+      "showIndex": true
+    },
+	{
+      "title": "MyBatis-Plus 概述与快速上手",
+      "showIndex": true
+    },
+	{
+      "title": "MyBatis-Plus 条件构造器与分页插件",
+      "showIndex": true
+    },
+	{
+      "title": "MyBatis-Plus 扩展",
+      "showIndex": true
+    },
+	{
+      "title": "缓存概述与 Spring Cache 入门",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Cache 核心注解详解",
+      "showIndex": true
+    },
+	{
+      "title": "缓存管理器与缓存存储配置",
+      "showIndex": true
+    },
+	{
+      "title": "缓存注解高级特性",
+      "showIndex": true
+    },
+	{
+      "title": "缓存原理与自定义扩展",
+      "showIndex": true
+    },
+	{
+      "title": "缓存核心问题与最佳实践",
+      "showIndex": true
+    },
+	{
+      "title": "异步处理概述与 Spring Async 入门",
+      "showIndex": true
+    },
+	{
+      "title": "任务执行器配置与线程池管理",
+      "showIndex": true
+    },
+	{
+      "title": "异步方法返回值与异常处理",
+      "showIndex": true
+    },
+	{
+      "title": "异步事件与 ApplicationEvent",
+      "showIndex": true
+    },
+	{
+      "title": "Web 异步处理",
+      "showIndex": true
+    },
+	{
+      "title": "TaskScheduler 调度器",
+      "showIndex": true
+    },
+	{
+      "title": "@Scheduled 注解应用",
+      "showIndex": true
+    },
+	{
+      "title": "Cron 表达式与调度综合实战",
+      "showIndex": true
+    },
+	{
+      "title": "批处理机制与 Spring Batch 快速入门",
+      "showIndex": true
+    },
+	{
+      "title": "ItemReader、Processor和Writer 实战",
+      "showIndex": true
+    },
+	{
+      "title": "JobRepository 与作业元数据管理",
+      "showIndex": true
+    },
+	{
+      "title": "批处理异常处理与重启机制",
+      "showIndex": true
+    },
+	{
+      "title": "批处理监听器与任务调度",
+      "showIndex": true
+    },
+	{
+      "title": "Actuator 入门与常用端点",
+      "showIndex": true
+    },
+	{
+      "title": "健康检查与自定义健康指示器",
+      "showIndex": true
+    },
+	{
+      "title": "指标监控与 Micrometer",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Boot Admin 可视化监控",
+      "showIndex": true
+    },
+	{
+      "title": "测试概述与 JUnit 5 基础",
+      "showIndex": true
+    },
+	{
+      "title": "Mockito 与单元测试",
+      "showIndex": true
+    },
+	{
+      "title": "Web 层测试：@WebMvcTest",
+      "showIndex": true
+    },
+	{
+      "title": "数据层测试：@MybatisPlusTest",
+      "showIndex": true
+    },
+	{
+      "title": "端到端集成测试：@SpringBootTest",
+      "showIndex": true
+    }
+  ]
+}

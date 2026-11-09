@@ -1,0 +1,21 @@
+### 定义基础的URL
+@host = http://localhost:8080
+@basePath = /api/orders
+
+### 创建订单
+POST {{host}}{{basePath}}
+Accept: application/json
+Authorization: Bearer 123456
+Content-Type: application/json
+
+{
+  "items": [
+    {"bookId": 2, "quantity": 3 },
+    {"bookId": 4, "quantity": 2 }
+  ]
+}
+
+### 根据Id查询订单
+GET {{host}}{{basePath}}/5
+Authorization: Bearer 123456
+Content-Type: application/json

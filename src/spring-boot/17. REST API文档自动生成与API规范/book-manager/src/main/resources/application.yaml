@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: book-manager
+
+---
+
+spring:
+  profiles:
+    active: prod
+
+
+logging:
+  level:
+    com.example.bookmanager: DEBUG          # 整个项目的日志级别
+    com.example.bookmanager.aspect: TRACE   # 切面类更详细
+    org.springframework.web: INFO

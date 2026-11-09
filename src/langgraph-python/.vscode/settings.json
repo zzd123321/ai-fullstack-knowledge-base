@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    "**/__init__.py": true,
+    "**/py.typed": true,
+    "**/.ruff_cache": true,
+    "**/__pycache__": true,
+    "opencode.jsonc": true,
+    "langgraph-api.yaml": true,
+    ".langgraph_api": true,
+    ".venv": true
+  }
+}

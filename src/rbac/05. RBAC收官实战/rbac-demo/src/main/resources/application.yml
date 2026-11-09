@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rbac_demo
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+
+jwt:
+  secret: "YXNkZmdoamtsbHF3ZXJ0eXVpb3BzZGZnaGprbHF3ZXJ0eXVpb3BzZGZnaGprbHF3ZXJ0eXVpb3Bz"
+  expiration: 86400000
+
+
+
+logging:
+  level:
+    # Spring Security 核心日志（最重要！可以看到认证/授权细节）
+    org.springframework.security: DEBUG
+    # Spring Web 请求日志（可以看到每个请求的路径）
+    org.springframework.web: DEBUG
+    # 你的项目包（可以看到你代码里的日志）
+    com.example.rbac: DEBUG
+    # JWT 工具类日志
+    io.jsonwebtoken: DEBUG

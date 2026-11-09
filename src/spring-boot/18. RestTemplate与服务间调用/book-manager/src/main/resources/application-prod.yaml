@@ -1,0 +1,17 @@
+server:
+  port: 9090
+
+logging:
+  level:
+    com.example.bookmanager: INFO
+
+app:
+  author: 运维团队
+  description: 生产环境 - 使用数据库存储
+
+---
+
+app:
+  weather:
+    api-key: 9db5db4a51a855dbebdb87210f44c993
+    url: https://api.openweathermap.org/data/2.5/weather

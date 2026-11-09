@@ -1,0 +1,54 @@
+### 环境切换（默认使用 dev）
+GET {{base_url}}/actuator/health
+
+
+### 查询所有图书
+GET {{base_url}}/api/books
+Accept: application/json
+Authorization: Bearer 123456
+
+### 查询单本图书（id=1）
+GET {{base_url}}/api/books/1
+Accept: application/json
+Authorization: Bearer 123456
+
+### 创建图书（POST）
+POST {{base_url}}/api/books
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "Spring Security 实战",
+  "author": "Craig Walls",
+  "price": 69.00,
+  "stock": 15,
+  "category": "编程"
+}
+
+### 更新图书（PUT /{id}）
+PUT {{base_url}}/api/books/4
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "Spring Security 实战（第2版）",
+  "author": "Craig Walls",
+  "price": 79.00,
+  "stock": 12,
+  "category": "编程"
+}
+
+### 删除图书（DELETE /{id}）
+DELETE {{base_url}}/api/books/4
+Authorization: Bearer 123456
+
+
+### 分页查询
+GET {{base_url}}/api/books/page?pageNum=2&pageSize=5
+Accept: application/json
+Authorization: Bearer 123456
+
+### 分页查询：支持作者和分类
+GET {{base_url}}/api/books/search/page?pageNum=2&pageSize=5&author=Craig Walls&category=技术
+Accept: application/json
+Authorization: Bearer 123456

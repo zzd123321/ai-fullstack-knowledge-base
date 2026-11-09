@@ -1,0 +1,164 @@
+### 环境切换（默认使用 dev）
+GET {{base_url}}/actuator/health
+
+
+### 查询所有图书
+GET {{base_url}}/api/books
+Accept: application/json
+Authorization: Bearer 123456
+
+### 查询单本图书（id=1）
+GET {{base_url}}/api/books/1
+Accept: application/json
+Authorization: Bearer 123456
+
+### 按作者查询（author=Craig Walls）
+GET {{base_url}}/api/books/author?name=Craig%20Walls
+Accept: application/json
+Authorization: Bearer 123456
+
+### 按价格区间查询（min=50, max=100）
+GET {{base_url}}/api/books/price?min=50&max=100
+Accept: application/json
+Authorization: Bearer 123456
+
+### 分页查询（page=1, size=5, sortBy=price, direction=desc）
+GET {{base_url}}/api/books/page?page=1&size=5&sortBy=price&direction=desc
+Accept: application/json
+Authorization: Bearer 123456
+
+### 创建图书（POST）
+POST {{base_url}}/api/books
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "Spring Security 实战",
+  "author": "Craig Walls",
+  "price": 69.00,
+  "stock": 15,
+  "category": "编程"
+}
+
+### 更新图书（PUT /{id}）
+PUT {{base_url}}/api/books/4
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "Spring Security 实战（第2版）",
+  "author": "Craig Walls",
+  "price": 79.00,
+  "stock": 12,
+  "category": "编程"
+}
+
+### 删除图书（DELETE /{id}）
+DELETE {{base_url}}/api/books/20
+Authorization: Bearer 123456
+
+### 批量导入图书（POST /batch）
+POST {{base_url}}/api/books/batch
+Content-Type: application/json
+Authorization: Bearer 123456
+
+[
+  {
+    "title": "微服务架构设计",
+    "author": "Chris Richardson",
+    "price": 89.00,
+    "stock": 8,
+    "category": "编程"
+  },
+  {
+    "title": "Kubernetes 权威指南",
+    "author": "龚正",
+    "price": 129.00,
+    "stock": 5,
+    "category": "运维"
+  }
+]
+
+
+### 批量导入图书（通过订单服务的导入接口，事务回滚演示）
+POST {{base_url}}/api/books/batch
+Content-Type: application/json
+Authorization: Bearer 123456
+
+[
+  {
+    "title": "设计模式：可复用面向对象软件的基础",
+    "author": "Erich Gamma",
+    "price": 99.00,
+    "stock": 10
+  },
+  {
+    "title": "重构：改善既有代码的设计",
+    "author": "Martin Fowler",
+    "price": 89.00,
+    "stock": 7
+  }
+]
+
+### 批量导入图书（模拟某本书数据异常，触发回滚）
+POST {{base_url}}/api/books/batch
+Content-Type: application/json
+Authorization: Bearer 123456
+
+[
+  {
+    "title": "有效",
+    "author": "作者A",
+    "price": 50.00,
+    "stock": 3
+  },
+  {
+    "title": null,
+    "author": "作者B",
+    "price": 60.00,
+    "stock": 2
+  }
+]
+
+### ================================
+### OrderController 接口测试
+### ================================
+
+### 创建订单（正常场景，库存充足）
+POST {{base_url}}/api/orders
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "bookId": 1,
+  "quantity": 2
+}
+
+### 创建订单（库存不足场景，应回滚并返回错误）
+POST {{base_url}}/api/orders
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "bookId": 1,
+  "quantity": 999
+}
+
+### 12. 创建订单（参数校验失败，bookId为空）
+POST {{base_url}}/api/orders
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "quantity": 5
+}
+
+### 13. 创建订单（参数校验失败，quantity为0）
+POST {{base_url}}/api/orders
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "bookId": 1,
+  "quantity": 0
+}

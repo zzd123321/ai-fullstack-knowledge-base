@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.bookmanager.mapper.BookMapper">
+
+    <!--    定义共享字段的SQL片段-->
+    <sql id="Base_Column_list">
+        id, title, author, price, stock, sales, category, isbn, description,
+               created_at, updated_at
+    </sql>
+
+    <!-- 结果集映射（可复用） -->
+    <resultMap id="BaseResultMap" type="Book">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="author" column="author"/>
+        <result property="price" column="price"/>
+        <result property="stock" column="stock"/>
+        <result property="sales" column="sales"/>
+        <result property="category" column="category"/>
+        <result property="isbn" column="isbn"/>
+        <result property="description" column="description"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_list"></include>
+        FROM book
+        ORDER BY id
+    </select>
+
+    <!-- 根据 ID 查询 -->
+    <select id="selectById" resultType="Book">--  resultMap="BaseResultMap"
+        SELECT <include refid="Base_Column_list"/>
+        FROM book
+        WHERE id = #{id}
+    </select>
+
+    <!-- 插入（返回自动生成的主键） -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO book (title, author, price, stock, sales, category, isbn, description)
+        VALUES (#{title}, #{author}, #{price}, #{stock}, #{sales}, #{category}, #{isbn}, #{description})
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update">
+        UPDATE book
+        <set>
+            <if test="title != null">title = #{title},</if>
+            <if test="author != null">author = #{author},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="stock != null">stock = #{stock},</if>
+            <if test="category != null">category = #{category},</if>
+            <if test="sales != null">sales = #{sales},</if>
+            <if test="isbn != null">isbn = #{isbn},</if>
+            <if test="description != null">description = #{description},</if>
+            updated_at = CURRENT_TIMESTAMP
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteById">
+        DELETE FROM book WHERE id = #{id}
+    </delete>
+
+    <select id="searchBooks" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_list"/>
+        FROM book
+        <where>
+            <if test="author != null and author != ''">
+                AND author LIKE CONCAT('%', #{author}, '%')
+            </if>
+            <if test="category != null and category != ''">
+                AND category = #{category}
+            </if>
+            <if test="minPrice != null">
+                AND price >= #{minPrice}
+            </if>
+            <if test="maxPrice != null">
+                AND price &lt;= #{maxPrice}
+            </if>
+        </where>
+        ORDER BY id
+    </select>
+
+    <insert id="batchInsert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO book (title, author, price, stock, sales, category, isbn, description)
+        VALUES
+        <foreach collection="books" item="book" separator=",">
+            (#{book.title}, #{book.author}, #{book.price}, #{book.stock}, #{book.sales},
+             #{book.category}, #{book.isbn}, #{book.description})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByIds">
+        DELETE FROM book WHERE id IN
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="findBooksByCondition" resultType="Book">
+        SELECT <include refid="Base_Column_list"/>
+        FROM book
+        <where>
+            <choose>
+                <when test="author != null and author != ''">
+                    AND author LIKE CONCAT('%', #{author}, '%')
+                </when>
+                <when test="category != null and category != ''">
+                    AND category = #{category}
+                </when>
+                <otherwise>
+                    AND price > 0
+                </otherwise>
+            </choose>
+        </where>
+        ORDER BY id
+    </select>
+</mapper>

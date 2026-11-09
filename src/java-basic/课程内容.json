@@ -1,0 +1,152 @@
+{
+  "title": "Java语言核心精讲",
+  "author": "郑天民",
+  "description": "面向全栈应用开发，这门Java课程精心提炼了必备的Java技术栈。以概念和设计为纲，以高强度实战为轴，让您充分拥抱AI Coding时代，用Java从容应对全栈开发需求。",
+  "playerPath": "AI大全栈 / Java / Java语言核心精讲",
+  "resourceUrl": "gitee.com/dev-edu/java-basic",
+  "skills": [
+    "Java环境",
+	"基本类型",
+    "容器类型",
+	"方法",
+	"Lambda表达式",
+	"Stream API",
+	"类和对象",
+	"封装",
+	"继承",
+	"多态",
+	"抽象类",
+	"接口",
+	"包",
+	"异常处理",
+	"反射",
+	"泛型",
+	"注解",
+	"枚举",
+	"Record",
+	"断言",
+	"多线程",
+	"线程状态",
+	"线程生命周期",
+	"线程安全",
+	"锁机制",
+	"线程池",
+	"Executor框架",
+	"并发容器",
+	"同步工具类",
+	"代码工程",
+	"Maven",
+	"POM",
+	"依赖管理",
+	"插件",
+	"多模块"
+  ],
+  "type": "录播",
+  "status": "已上架",
+  "catalog": [
+    {
+      "title": "课程导言",
+      "showIndex": true
+    },
+	{
+      "title": "构建第一个Java应用程序",
+      "showIndex": true
+    },
+	{
+      "title": "Java基础语法",
+      "showIndex": true
+    },
+	{
+      "title": "容器类型",
+      "showIndex": true
+    },
+	{
+      "title": "方法",
+      "showIndex": true
+    },
+	{
+      "title": "Lambda表达式",
+      "showIndex": true
+    },
+	{
+      "title": "Stream API",
+      "showIndex": true
+    },
+	{
+      "title": "类和对象",
+      "showIndex": true
+    },
+	{
+      "title": "封装、继承和多态",
+      "showIndex": true
+    },
+	{
+      "title": "抽象类和接口",
+      "showIndex": true
+    },
+	{
+      "title": "包管理",
+      "showIndex": true
+    },
+	{
+      "title": "异常处理",
+      "showIndex": true
+    },
+	{
+      "title": "反射",
+      "showIndex": true
+    },
+	{
+      "title": "泛型",
+      "showIndex": true
+    },
+	{
+      "title": "注解",
+      "showIndex": true
+    },
+	{
+      "title": "Java特性拾遗与精进",
+      "showIndex": true
+    },
+	{
+      "title": "线程基础与创建方式",
+      "showIndex": true
+    },
+	{
+      "title": "线程生命周期与控制方法",
+      "showIndex": true
+    },
+	{
+      "title": "线程安全与锁机制",
+      "showIndex": true
+    },
+	{
+      "title": "线程池与Executor框架",
+      "showIndex": true
+    },
+	{
+      "title": "并发集合与同步工具类",
+      "showIndex": true
+    },
+	{
+      "title": "高级并发与最佳实践",
+      "showIndex": true
+    },
+	{
+      "title": "Maven入门与环境配置",
+      "showIndex": true
+    },
+	{
+      "title": "POM文件与依赖管理",
+      "showIndex": true
+    },
+	{
+      "title": "Maven生命周期与插件体系",
+      "showIndex": true
+    },
+	{
+      "title": "多模块项目管理",
+      "showIndex": true
+    }
+  ]
+}

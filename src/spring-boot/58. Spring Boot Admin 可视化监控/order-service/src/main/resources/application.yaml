@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: order-service
+  boot:
+    admin:
+      client:
+        # Admin Server 地址
+        url: http://localhost:8081
+server:
+  port: 8082
+---
+
+
+# Actuator 配置
+management:
+  server:
+    port: 9091
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,14 @@
+server:
+  port: 8081   # Admin Server 端口
+
+spring:
+  application:
+    name: admin-server
+
+---
+
+spring:
+  boot:
+    admin:
+      monitor:
+        status-interval: 30s   # 状态检查间隔

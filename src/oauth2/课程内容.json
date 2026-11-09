@@ -1,0 +1,57 @@
+{
+  "title": "OAuth2",
+  "author": "郑天民",
+  "description": "本课程系统讲解OAuth2协议核心概念、授权模式与实战应用，涵盖授权码、令牌刷新、安全策略，助你构建安全的第三方授权系统。",
+  "playerPath": "AI大全栈 / 通识 / OAuth2",
+  "resourceUrl": "https://gitee.com/dev-edu/oauth2",
+  "skills": [
+    "OAuth2协议",
+    "OAuth2角色",
+    "OAuth2授权模式",
+    "授权码模式",
+    "隐式模式",
+    "密码模式",
+    "客户端凭证模式",
+    "模式选型",
+    "PKCE",
+    "OIDC",
+    "令牌管理",
+    "案例实战"
+  ],
+  "type": "录播",
+  "status": "已上架",
+  "catalog": [
+    {
+      "title": "OAuth2是什么：问题与需求",
+      "showIndex": true
+    },
+    {
+      "title": "OAuth2怎么工作：核心概念和角色",
+      "showIndex": true
+    },
+    {
+      "title": "OAuth2的授权模式与选型",
+      "showIndex": true
+    },
+    {
+      "title": "授权码模式：流程、参数与设计",
+      "showIndex": true
+    },
+    {
+      "title": "授权码模式+PKCE：移动端安全增强",
+      "showIndex": true
+    },
+    {
+      "title": "OIDC：在OAuth2上加一层身份认证",
+      "showIndex": true
+    },
+    {
+      "title": "令牌的生命周期管理和最佳实践",
+      "showIndex": true
+    },
+    {
+      "title": "OAuth2收官实战",
+      "showIndex": true
+    }
+  ]
+}

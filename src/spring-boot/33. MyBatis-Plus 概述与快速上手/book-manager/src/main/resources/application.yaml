@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: book-manager
+
+---
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bookdb3
+    username: postgres
+    password: admin
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # XML 映射文件位置（可沿用原有配置）
+  mapper-locations: classpath*:mapper/**/*.xml
+  # 实体类包路径
+  type-aliases-package: com.example.bookmanager.model
+  # 全局配置
+  global-config:
+    db-config:
+      # 主键策略：自增
+      id-type: auto
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  # 配置信息
+  configuration:
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+    # 日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pagehelper:
+  helper-dialect: postgresql      # 数据库方言
+  reasonable: true                # 分页合理化（pageNum <= 0 自动取第一页）
+  support-methods-arguments: true # 支持通过 Mapper 方法参数传递分页参数
+  params: count=countSql

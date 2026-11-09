@@ -1,0 +1,102 @@
+### 环境切换（默认使用 dev）
+GET {{base_url}}/actuator/health
+
+### ========== 基础 CRUD ==========
+### 查询所有图书
+GET {{base_url}}/api/books
+Accept: application/json
+Authorization: Bearer 123456
+
+### 查询单本图书（id=1）
+GET {{base_url}}/api/books/1
+Accept: application/json
+Authorization: Bearer 123456
+
+### 创建图书（POST）
+POST {{base_url}}/api/books
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "Spring Security 实战",
+  "author": "Craig Walls",
+  "price": 69.00,
+  "stock": 15,
+  "category": "编程"
+}
+
+### 更新图书（PUT /{id}）
+PUT {{base_url}}/api/books/4
+Content-Type: application/json
+Authorization: Bearer 123456
+
+{
+  "title": "Spring Security 实战（第2版）",
+  "author": "Craig Walls",
+  "price": 79.00,
+  "stock": 12,
+  "category": "编程"
+}
+
+### 删除图书（DELETE /{id}）
+DELETE {{base_url}}/api/books/4
+Authorization: Bearer 123456
+
+### ========== 查询：按作者 ==========
+GET {{base_url}}/api/books/author?name=Craig%20Walls
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 查询：按标题关键字 ==========
+GET {{base_url}}/api/books/search?keyword=Spring
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 查询：查询结果封装 ==========
+GET {{base_url}}/api/books/summaries?minPrice=50
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 查询：价格高于指定值（分页） ==========
+GET {{base_url}}/api/books/above-price?minPrice=50&page=1&size=5
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 查询：按作者和价格区间 ==========
+GET {{base_url}}/api/books/search-by-author-price?author=Craig%20Walls&min=50&max=100
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 聚合查询：平均价格 ==========
+GET {{base_url}}/api/books/stats/average-price
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 聚合查询：某分类最高价格 ==========
+GET {{base_url}}/api/books/stats/max-price?category=编程
+Accept: application/json
+Authorization: Bearer 123456
+
+### ========== 更新操作：调整库存（delta 正数增加，负数减少） ==========
+PUT {{base_url}}/api/books/1/stock?delta=5
+Authorization: Bearer 123456
+
+### ========== 更新操作：按分类删除 ==========
+DELETE {{base_url}}/api/books/category/运维
+Authorization: Bearer 123456
+
+### ========== 排序与分页（多字段排序） ==========
+### 分页+排序（默认升序）
+GET {{base_url}}/api/books/page?page=1&size=5&sortBy=price&direction=desc
+Accept: application/json
+Authorization: Bearer 123456
+
+### 按价格降序排序（全量）
+GET {{base_url}}/api/books/sorted-by-price-desc
+Accept: application/json
+Authorization: Bearer 123456
+
+### 按多字段排序（价格降序、标题升序）
+GET {{base_url}}/api/books/sorted-multi
+Accept: application/json
+Authorization: Bearer 123456

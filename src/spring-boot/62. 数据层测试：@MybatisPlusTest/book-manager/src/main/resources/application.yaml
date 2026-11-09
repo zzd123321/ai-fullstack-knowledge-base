@@ -1,0 +1,131 @@
+spring:
+  application:
+    name: book-manager
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:8081
+
+---
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/bookdb3
+    username: postgres
+    password: admin
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+  batch:
+    # 自动初始化 Spring Batch 元数据表
+    jdbc:
+      initialize-schema: never
+    # 禁止应用启动时自动执行所有 Job
+    job:
+      enabled: false
+
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  # XML 映射文件位置（可沿用原有配置）
+  mapper-locations: classpath*:mapper/**/*.xml
+  # 实体类包路径
+  type-aliases-package: com.example.bookmanager.model
+  # 全局配置
+  global-config:
+    db-config:
+      # 主键策略：自增
+      id-type: auto
+      # 逻辑删除字段名
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  # 配置信息
+  configuration:
+    # 下划线转驼峰
+    map-underscore-to-camel-case: true
+    # 日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 自动生成 count 查询
+
+logging:
+  level:
+    org.springframework.cache: TRACE
+
+---
+
+spring:
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=100,expireAfterWrite=10m
+    cache-names:
+      - books
+      - orders
+
+app:
+  cache:
+    enabled: true
+
+
+info:
+  app:
+    name: 图书管理系统
+    version: 1.0.0
+    author: 技术团队
+    description: 基于 Spring Boot 的图书管理系统
+    java-version: ${java.version}
+
+management:
+  server:
+    port: 9090
+  endpoint:
+    health:
+      show-details: always
+      cache:
+        time-to-live: 5s
+      roles: admin
+      status:
+        http-mapping:
+          DOWN: 500
+          OUT_OF_SERVICE: 503
+          UNKNOWN: 200
+      group:
+        liveness:
+          include: ping
+        readiness:
+          include: db,cache,stockService
+          exclude: diskSpace,mockCache
+
+    heapdump:
+      access: unrestricted
+    env:
+      show-values: never
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  info:
+    env:
+      enabled: true
+
+  metrics:
+    tags:
+      application: book-management
+
+  observations:
+    annotations:
+      enabled: true
+---
+
+management:
+  health:
+    diskspace:
+      enabled: true
+      threshold: 100MB   # 可用空间低于 100MB 时标记为 DOWN
+      path: /data

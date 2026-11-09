@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: book-manager
+
+---
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./bookdb  # 关键：指定数据库文件的路径，.代表保存文件到当前目录，~代表保存文件到当前用户
+    username: sa
+    password:
+  sql:
+    init:
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+      mode: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console # 控制台

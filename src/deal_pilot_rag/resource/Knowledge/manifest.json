@@ -1,0 +1,452 @@
+{
+  "compiled_at": "2026-11-04",
+  "knowledge_as_of": "2026-08-20",
+  "source_root": "resource/企业知识库",
+  "text_sources": 18,
+  "image_sources": 9,
+  "wiki_content_pages": 44,
+  "sources": [
+    {
+      "id": "PROD-001",
+      "original_path": "resource/企业知识库/01_产品与配置资料/PROD-001_A200产品与配置说明.md",
+      "raw_path": "raw/01_产品与配置资料/PROD-001_A200产品与配置说明.md",
+      "bytes": 3000,
+      "sha256": "30da2a4a8315c6bfe52361e00a9dcd6245b243616557de5b80ac28ccd3bb2825",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/PROD-001.md",
+      "knowledge_pages": [
+        "wiki/entities/A200推理一体机.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/标准交付与服务边界.md"
+      ]
+    },
+    {
+      "id": "PROD-002",
+      "original_path": "resource/企业知识库/01_产品与配置资料/PROD-002_A400产品与配置说明.md",
+      "raw_path": "raw/01_产品与配置资料/PROD-002_A400产品与配置说明.md",
+      "bytes": 2228,
+      "sha256": "34b38a6b6ac06db3d9981361c4a265e9e12f0546b26c805848d8092ca5efdf81",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/PROD-002.md",
+      "knowledge_pages": [
+        "wiki/entities/衡远设计.md",
+        "wiki/entities/A400推理一体机.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/concepts/标准交付与服务边界.md"
+      ]
+    },
+    {
+      "id": "PROD-003",
+      "original_path": "resource/企业知识库/01_产品与配置资料/PROD-003_软件兼容清单.md",
+      "raw_path": "raw/01_产品与配置资料/PROD-003_软件兼容清单.md",
+      "bytes": 1975,
+      "sha256": "a3f6317c8e75cf630419eacae0f469e3fe114dea43734f00dc20320f61724c69",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/PROD-003.md",
+      "knowledge_pages": [
+        "wiki/entities/A400推理一体机.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "TEST-001",
+      "original_path": "resource/企业知识库/02_测试与性能报告/TEST-001_A200性能测试报告.md",
+      "raw_path": "raw/02_测试与性能报告/TEST-001_A200性能测试报告.md",
+      "bytes": 2679,
+      "sha256": "0243825394e0b52df4e14e015d987b58aeba65cec4238735a91cdada8cb70826",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/TEST-001.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/云岚客服.md",
+        "wiki/entities/A200推理一体机.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "TEST-002",
+      "original_path": "resource/企业知识库/02_测试与性能报告/TEST-002_A400性能测试报告.md",
+      "raw_path": "raw/02_测试与性能报告/TEST-002_A400性能测试报告.md",
+      "bytes": 1571,
+      "sha256": "16673a2a5a36c28e971044282aeba671be1a8ba32d8c40898b7f2d04ac103046",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/TEST-002.md",
+      "knowledge_pages": [
+        "wiki/entities/衡远设计.md",
+        "wiki/entities/A400推理一体机.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "TEST-003",
+      "original_path": "resource/企业知识库/02_测试与性能报告/TEST-003_工务通接口兼容验证.md",
+      "raw_path": "raw/02_测试与性能报告/TEST-003_工务通接口兼容验证.md",
+      "bytes": 1750,
+      "sha256": "2a1c7931a19fad36ffbc0d4d8679dbe8e637c1f5638821696250239669d7302b",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/TEST-003.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/云岚客服.md",
+        "wiki/entities/A400推理一体机.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/软件兼容与现场验收.md"
+      ]
+    },
+    {
+      "id": "CUST-001",
+      "original_path": "resource/企业知识库/03_客户与商机资料/CUST-001_华辰精工商机与需求.md",
+      "raw_path": "raw/03_客户与商机资料/CUST-001_华辰精工商机与需求.md",
+      "bytes": 2414,
+      "sha256": "b8545acbaf629c30408b948c52164dc5aa94a4447533f05ad11de11f825ab5bf",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/CUST-001.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/A200推理一体机.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/标准交付与服务边界.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "CUST-002",
+      "original_path": "resource/企业知识库/03_客户与商机资料/CUST-002_云岚客服商机与需求.md",
+      "raw_path": "raw/03_客户与商机资料/CUST-002_云岚客服商机与需求.md",
+      "bytes": 2328,
+      "sha256": "7e4b459705a0fd4bf07c4b30969d0e2ea1d587d5299e71792ef55d7156003271",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/CUST-002.md",
+      "knowledge_pages": [
+        "wiki/entities/云岚客服.md",
+        "wiki/entities/A200推理一体机.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/引擎升级风险与项目影响.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "CUST-003",
+      "original_path": "resource/企业知识库/03_客户与商机资料/CUST-003_衡远设计试点与新增需求.md",
+      "raw_path": "raw/03_客户与商机资料/CUST-003_衡远设计试点与新增需求.md",
+      "bytes": 1748,
+      "sha256": "6b2ab67bffd5dce95464c4b61ce56b3fea306e0e0bf06f3ff9d70b9f99d5f549",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/CUST-003.md",
+      "knowledge_pages": [
+        "wiki/entities/衡远设计.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/引擎升级风险与项目影响.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "SOL-001",
+      "original_path": "resource/企业知识库/04_解决方案与案例/SOL-001_华辰精工七月方案.md",
+      "raw_path": "raw/04_解决方案与案例/SOL-001_华辰精工七月方案.md",
+      "bytes": 1394,
+      "sha256": "ad3e420ea60e1d43f5fb878f6c0c3fc80df57224de8bbeb609d7662c2bc79a07",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/SOL-001.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "SOL-002",
+      "original_path": "resource/企业知识库/04_解决方案与案例/SOL-002_华辰精工八月选型评审.md",
+      "raw_path": "raw/04_解决方案与案例/SOL-002_华辰精工八月选型评审.md",
+      "bytes": 2360,
+      "sha256": "a1e27a19e6abe7d0543ca74c494f245d37730693d90263bbf04d31219f1a2386",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/SOL-002.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/A200推理一体机.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/引擎升级风险与项目影响.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "SOL-003",
+      "original_path": "resource/企业知识库/04_解决方案与案例/SOL-003_衡远设计试点案例.md",
+      "raw_path": "raw/04_解决方案与案例/SOL-003_衡远设计试点案例.md",
+      "bytes": 1995,
+      "sha256": "4a9bfcfa391d443289e4a2ea0096c3e61179bb3c5ff30f3f465039447649eb0c",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/SOL-003.md",
+      "knowledge_pages": [
+        "wiki/entities/衡远设计.md",
+        "wiki/entities/A400推理一体机.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "BIZ-001",
+      "original_path": "resource/企业知识库/05_报价与商务政策/BIZ-001_历史价格表.md",
+      "raw_path": "raw/05_报价与商务政策/BIZ-001_历史价格表.md",
+      "bytes": 1299,
+      "sha256": "640bf23bf20e1b2444869e6a2746b26a866a04de54d88c46ba9b5b4bdb33c6eb",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/BIZ-001.md",
+      "knowledge_pages": [
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "BIZ-002",
+      "original_path": "resource/企业知识库/05_报价与商务政策/BIZ-002_当前价格与折扣政策.md",
+      "raw_path": "raw/05_报价与商务政策/BIZ-002_当前价格与折扣政策.md",
+      "bytes": 2439,
+      "sha256": "d3266e416755563ff6066e89b4e6915301dc976fdc0b0852c13496532de0ab97",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/BIZ-002.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/A200推理一体机.md",
+        "wiki/entities/A400推理一体机.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/标准交付与服务边界.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "BIZ-003",
+      "original_path": "resource/企业知识库/05_报价与商务政策/BIZ-003_华辰精工内部报价申请.md",
+      "raw_path": "raw/05_报价与商务政策/BIZ-003_华辰精工内部报价申请.md",
+      "bytes": 1807,
+      "sha256": "735a5b52db0552f32ac0113bddca2a34306fe7668d6eaf376f6cce89d710f1c6",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/BIZ-003.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/价格版本与折扣审批.md",
+        "wiki/concepts/标准交付与服务边界.md",
+        "wiki/concepts/引擎升级风险与项目影响.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "SALES-001",
+      "original_path": "resource/企业知识库/06_销售沟通资料/SALES-001_华辰精工销售跟进纪要.md",
+      "raw_path": "raw/06_销售沟通资料/SALES-001_华辰精工销售跟进纪要.md",
+      "bytes": 2235,
+      "sha256": "f62f88ba53246a38a4d1bd1c66ce0b9461bb7ec8580b6c432708717312a183b6",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/SALES-001.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "SALES-002",
+      "original_path": "resource/企业知识库/06_销售沟通资料/SALES-002_售前术语与表达口径.md",
+      "raw_path": "raw/06_销售沟通资料/SALES-002_售前术语与表达口径.md",
+      "bytes": 2552,
+      "sha256": "3c922ee35d75ab5b991d7bfc0bc534e3360e0f09d5c40d28f187b529e5921d1c",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/SALES-002.md",
+      "knowledge_pages": [
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/星语模型与精度.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/价格版本与折扣审批.md"
+      ]
+    },
+    {
+      "id": "SALES-003",
+      "original_path": "resource/企业知识库/06_销售沟通资料/SALES-003_引擎升级销售沟通通知.md",
+      "raw_path": "raw/06_销售沟通资料/SALES-003_引擎升级销售沟通通知.md",
+      "bytes": 2269,
+      "sha256": "7ad7e3a6dade89c643eff149f933c25d9afa1a33150250c848cb084d165dac1c",
+      "extraction": "full_markdown_read",
+      "source_page": "wiki/sources/SALES-003.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/entities/云岚客服.md",
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/entities/工务通旧版适配器.md",
+        "wiki/entities/工务通标准连接器.md",
+        "wiki/entities/澄算科技与项目角色.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/引擎升级风险与项目影响.md",
+        "wiki/concepts/版本演进与待确认事项.md"
+      ]
+    },
+    {
+      "id": "IMG-001",
+      "original_path": "resource/企业知识库/图片素材/IMG-001_华辰销售群聊天.png",
+      "raw_path": "raw/图片素材/IMG-001_华辰销售群聊天.png",
+      "bytes": 1562733,
+      "sha256": "1cc2680f43fa5f3f297d728ffff7b80dc122d73ec8008321581df7b0e8348844",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-001.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/concepts/版本演进与待确认事项.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-002",
+      "original_path": "resource/企业知识库/图片素材/IMG-002_云岚售前群聊天.png",
+      "raw_path": "raw/图片素材/IMG-002_云岚售前群聊天.png",
+      "bytes": 1519762,
+      "sha256": "020991d8f8440086bb72131521c5ce8a05db5df56c4c309e541e19981b9cce88",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-002.md",
+      "knowledge_pages": [
+        "wiki/entities/云岚客服.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/版本演进与待确认事项.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-003",
+      "original_path": "resource/企业知识库/图片素材/IMG-003_A200两卡版正面.png",
+      "raw_path": "raw/图片素材/IMG-003_A200两卡版正面.png",
+      "bytes": 1850544,
+      "sha256": "bae890c811c0fa6bbb3a42d13e68a12be99cfb3455b5dc0340c49c4ad87dbdc0",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-003.md",
+      "knowledge_pages": [
+        "wiki/entities/A200推理一体机.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-004",
+      "original_path": "resource/企业知识库/图片素材/IMG-004_A200四卡版内部.png",
+      "raw_path": "raw/图片素材/IMG-004_A200四卡版内部.png",
+      "bytes": 2302878,
+      "sha256": "fa07270094ae67119295630806a238251d940f679cd7b4bf2c6b1a166b49e82c",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-004.md",
+      "knowledge_pages": [
+        "wiki/entities/A200推理一体机.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-005",
+      "original_path": "resource/企业知识库/图片素材/IMG-005_A400四卡版正面.png",
+      "raw_path": "raw/图片素材/IMG-005_A400四卡版正面.png",
+      "bytes": 2278660,
+      "sha256": "45f6d005175d0a91fff495f0f614f1936e70da9845d4f78578ffe8dd1fe0e0c2",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-005.md",
+      "knowledge_pages": [
+        "wiki/entities/A400推理一体机.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-006",
+      "original_path": "resource/企业知识库/图片素材/IMG-006_A400后面板接口.png",
+      "raw_path": "raw/图片素材/IMG-006_A400后面板接口.png",
+      "bytes": 2537913,
+      "sha256": "a8f7d72734c801a2b30e560b2f1524f8131fb41d52fa36e8888f897fe502f8a9",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-006.md",
+      "knowledge_pages": [
+        "wiki/entities/A400推理一体机.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-007",
+      "original_path": "resource/企业知识库/图片素材/IMG-007_华辰部署讨论草图.png",
+      "raw_path": "raw/图片素材/IMG-007_华辰部署讨论草图.png",
+      "bytes": 1282418,
+      "sha256": "741679ca8079a5ad1d2ab10d5100674425e584dc9e8084cd5dbce21216fd9a57",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-007.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/concepts/软件兼容与现场验收.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-008",
+      "original_path": "resource/企业知识库/图片素材/IMG-008_A200性能对比.png",
+      "raw_path": "raw/图片素材/IMG-008_A200性能对比.png",
+      "bytes": 1240261,
+      "sha256": "79da92c334d8f14977e0374e6247a2f666e1c55a1b1d10a3d024aa30e589f31a",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-008.md",
+      "knowledge_pages": [
+        "wiki/entities/华辰精工.md",
+        "wiki/concepts/性能选型与验收口径.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    },
+    {
+      "id": "IMG-009",
+      "original_path": "resource/企业知识库/图片素材/IMG-009_旧版适配器故障界面.png",
+      "raw_path": "raw/图片素材/IMG-009_旧版适配器故障界面.png",
+      "bytes": 1289547,
+      "sha256": "3f7660e3a4dc3072ce6d4a35059974442f1946563b94e2211fd07e3daf8683d6",
+      "extraction": "direct_visual_read",
+      "source_page": "wiki/sources/IMG-009.md",
+      "knowledge_pages": [
+        "wiki/entities/澄算推理引擎.md",
+        "wiki/concepts/引擎升级风险与项目影响.md",
+        "wiki/concepts/图片证据与多模态资料.md"
+      ]
+    }
+  ]
+}

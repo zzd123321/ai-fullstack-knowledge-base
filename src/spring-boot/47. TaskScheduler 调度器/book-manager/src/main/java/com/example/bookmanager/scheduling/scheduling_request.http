@@ -1,0 +1,26 @@
+
+### 启动任务
+POST {{base_url}}/api/tasks/start?taskId=stockCheck&intervalSeconds=5
+Authorization: Bearer 123456
+
+### 停止任务
+POST {{base_url}}/api/tasks/stop?taskId=stockCheck
+Authorization: Bearer 123456
+
+### 查询任务状态
+GET {{base_url}}/api/tasks/status?taskId=stockCheck
+Authorization: Bearer 123456
+
+
+
+### 重新任务
+POST {{base_url}}/api/stock/start
+Authorization: Bearer 123456
+
+### 停止任务
+POST {{base_url}}/api/stock/stop
+Authorization: Bearer 123456
+
+### 查询任务状态
+GET {{base_url}}/api/stock/status
+Authorization: Bearer 123456

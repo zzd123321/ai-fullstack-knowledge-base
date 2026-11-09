@@ -1,0 +1,43 @@
+
+POST {{base_url}}/api/batch/import-books
+Content-Type: application/json
+Authorization: Bearer 123456
+
+###
+POST {{base_url}}/api/batch/import-csv
+Content-Type: application/json
+Authorization: Bearer 123456
+
+
+### 1. 触发一次 CSV 导入作业
+POST http://localhost:8080/api/batch/import-csv
+Authorization: Bearer 123456
+
+### 2. 查询作业执行记录
+GET http://localhost:8080/api/batch/jobs/csvImportJob/executions
+Authorization: Bearer 123456
+
+### 3. 查询步骤详情
+GET http://localhost:8080/api/batch/jobs/executions/6/steps
+Authorization: Bearer 123456
+
+### 4. 查询正在运行的作业
+GET http://localhost:8080/api/batch/jobs/csvImportJob/running
+Authorization: Bearer 123456
+
+### 5. 查询作业实例数量
+GET http://localhost:8080/api/batch/jobs/csvImportJob/count
+Authorization: Bearer 123456
+
+### 6. 停止正在运行的作业
+POST http://localhost:8080/api/batch/jobs/executions/6/stop
+Authorization: Bearer 123456
+
+### 7. 重启失败的作业
+POST http://localhost:8080/api/batch/jobs/executions/6/restart
+Authorization: Bearer 123456
+
+
+###
+POST http://localhost:8080/api/batch/statistics
+Authorization: Bearer 123456

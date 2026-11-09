@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    com.example.bookmanager: debug
+
+app:
+  author: 开发团队
+  description: 开发环境 - 使用内存存储

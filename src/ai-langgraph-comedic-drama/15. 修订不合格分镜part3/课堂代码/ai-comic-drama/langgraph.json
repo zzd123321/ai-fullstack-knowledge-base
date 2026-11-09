@@ -1,0 +1,7 @@
+{
+    "dependencies": ["."],
+    "graphs": {
+        "comic_drama": "./server/workflows/graph.py:graph"
+    },
+    "env": ".env"
+}

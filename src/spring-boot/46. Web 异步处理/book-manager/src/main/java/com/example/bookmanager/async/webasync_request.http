@@ -1,0 +1,8 @@
+
+
+GET {{base_url}}/api/async/callable
+Authorization: Bearer 123456
+
+###
+GET {{base_url}}/api/async/web-async-task
+Authorization: Bearer 123456
