@@ -1,0 +1,22 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Java and build tool output
+*.class
+target/
+build/
+.gradle/
+
+# Editor settings and temporary files
+.idea/
+*.iml
+*.swp
+*~
