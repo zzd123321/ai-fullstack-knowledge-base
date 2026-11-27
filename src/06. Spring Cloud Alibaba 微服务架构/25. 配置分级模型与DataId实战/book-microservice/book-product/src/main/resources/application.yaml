@@ -1,0 +1,19 @@
+server:
+  port: 8081    # 默认端口（Nacos配置会覆盖）
+
+spring:
+  application:
+    name: book-product
+  config:
+    import:
+      - optional:nacos:book-product.yml
+      - optional:nacos:common-mybatis.yml?group=DEFAULT_GROUP&refreshEnabled=true
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: ${NACOS_NAMESPACE:dev}    # 默认dev
+        file-extension: yml
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: ${NACOS_NAMESPACE:dev}

@@ -1,0 +1,60 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: book-order
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务器
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+        group: DEFAULT_GROUP
+        metadata:
+          env: dev
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book_order_db
+    username: postgres
+    password: admin
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+---
+
+spring:
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:                    # 全局配置，所有Feign客户端生效
+            loggerLevel: BASIC
+            connectTimeout: 5000      # 连接超时，单位毫秒
+            readTimeout: 10000        # 读取超时，单位毫秒
+          book-product:               # 针对特定服务的配置，优先级高于default
+            loggerLevel: FULL
+            connectTimeout: 3000      # 针对图书服务单独调整
+            readTimeout: 8000
+    loadbalancer:
+      nacos:
+        enabled: true    # 启动NacosLoadBalancer覆盖自定义策略
+      cache:
+        enabled: false    # 避免使用缓存，确保权重立即生效
+        ttl: 5
+      retry:
+        enabled: true
+        max-retries-on-next-service-instance: 1
+        max-retries-on-same-service-instance: 0
+        retry-on-all-operations: false     # 仅GET重试
+
+logging:
+  level:
+    com.example.order.client: DEBUG   # 必须开启Feign客户端所在包的DEBUG日志

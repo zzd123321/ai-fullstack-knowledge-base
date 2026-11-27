@@ -1,0 +1,180 @@
+### 环境切换（默认使用 dev）
+GET {{product_url}}/api/products
+
+### ========================================
+### 商品服务测试
+### ========================================
+
+### 创建商品1
+POST {{product_url}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Spring Boot 实战",
+  "author": "Craig Walls",
+  "price": 79.0,
+  "stock": 10,
+  "category": "编程"
+}
+
+### 创建商品2
+POST {{product_url}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Java 核心技术",
+  "author": "Cay Horstmann",
+  "price": 89.0,
+  "stock": 8,
+  "category": "编程"
+}
+
+### 查询所有商品
+GET {{product_url}}/api/products
+
+### 查询商品详情
+GET {{product_url}}/api/products/1
+
+### 修改商品
+PUT {{product_url}}/api/products/1
+Content-Type: application/json
+
+{
+  "title": "Spring Boot 实战（第2版）",
+  "author": "Craig Walls",
+  "price": 89.0,
+  "stock": 20,
+  "category": "编程"
+}
+
+### 删除商品
+DELETE {{product_url}}/api/products/1
+
+
+
+### ========================================
+### 用户服务测试
+### ========================================
+
+### 创建用户
+POST {{user_url}}/api/users
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "email": "alice@example.com",
+  "phone": "13800138000"
+}
+
+### 查询所有用户
+GET {{user_url}}/api/users
+
+### 查询用户详情
+GET {{user_url}}/api/users/1
+
+### 修改用户
+PUT {{user_url}}/api/users/1
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "email": "alice_new@example.com",
+  "phone": "13900139000"
+}
+
+### 删除用户
+DELETE {{user_url}}/api/users/1
+
+
+
+### ========================================
+### 订单服务测试
+### ========================================
+
+### 创建订单（包含两个订单项）
+POST {{order_url}}/api/orders
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "items": [
+    {
+      "productId": 1,
+      "title": "Spring Boot 实战",
+      "author": "Craig Walls",
+      "price": 79.0,
+      "quantity": 2
+    },
+    {
+      "productId": 2,
+      "title": "Java 核心技术",
+      "author": "Cay Horstmann",
+      "price": 89.0,
+      "quantity": 1
+    }
+  ]
+}
+
+### 查询订单详情
+GET {{order_url}}/api/orders/1
+
+### 查询所有订单
+GET {{order_url}}/api/orders
+
+### 根据用户查询订单
+GET {{order_url}}/api/orders/user/1
+
+### 根据状态查询订单
+GET {{order_url}}/api/orders/status/CREATED
+
+### 取消订单
+PUT {{order_url}}/api/orders/1/cancel
+
+### ========================================
+### 异常场景测试
+### ========================================
+
+### 创建订单 - 订单项为空（应返回 400）
+POST {{order_url}}/api/orders
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "items": []
+}
+
+### 创建订单 - 数量为 0（应返回 400）
+POST {{order_url}}/api/orders
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "title": "Spring Boot 实战",
+      "author": "Craig Walls",
+      "price": 79.0,
+      "quantity": 0
+    }
+  ]
+}
+
+### 取消已取消的订单
+PUT {{order_url}}/api/orders/1/cancel
+
+### 查询不存在的订单
+GET {{order_url}}/api/orders/999
+
+
+### 获取所有已注册的服务
+GET {{order_url}}/api/discovery/services
+
+### 获取图书服务的实例列表
+GET {{order_url}}/api/discovery/book-instances
+
+### 通过服务发现获取图书服务的详细图书信息
+GET {{order_url}}/api/discovery/book/1
+
+### 通过服务发现获取图书服务的详细图书信息（不存在）
+GET {{order_url}}/api/discovery/book/999

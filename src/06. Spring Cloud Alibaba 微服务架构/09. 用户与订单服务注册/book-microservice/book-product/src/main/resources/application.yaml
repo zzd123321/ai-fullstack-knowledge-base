@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: book-product
+  config:
+    import: optional:file:../nacos-shared.yml
+  cloud:
+    nacos:
+      discovery:
+        metadata:
+          version: 1.0.0
+          env: dev
+          region: beijing
+        weight: 2.0
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book_product_db
+    username: postgres
+    password: admin
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+
+logging:
+  level:
+    com.alibaba.cloud.nacos: DEBUG
+    com.alibaba.nacos: DEBUG

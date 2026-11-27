@@ -1,0 +1,50 @@
+### 通过网关查询图书（与直接调用book-product的响应一致）
+GET http://localhost:8090/api/products/1
+
+### 自动路由
+GET http://localhost:8090/book-product/api/products/1
+
+### 通过网关查询用户
+GET http://localhost:8090/api/users/1
+
+### 通过网关查询订单
+GET http://localhost:8090/api/orders/1
+
+### 使用StripPrefix
+GET http://localhost:8090/product-service/api/products/1
+
+### 使用RewritePath
+GET http://localhost:8090/api/v1/products/1
+
+### GET请求
+GET http://localhost:8090/api/orders/1
+
+### POST请求
+POST http://localhost:8090/api/orders
+
+### DELETE请求
+DELETE http://localhost:8090/api/orders/1
+
+### 正常
+GET http://localhost:8090/api/products/search?keyword=Spring
+
+### 无keyword
+GET http://localhost:8090/api/products/search
+
+### 空值
+GET http://localhost:8090/api/products/search?keyword=
+
+### 无X-Admin-Token
+POST http://localhost:8090/api/products
+
+### 携带X-Admin-Token: any
+POST http://localhost:8090/api/products
+X-Admin-Token: any
+
+### 携带X-Admin-Token
+GET http://localhost:8090/api/products
+X-Admin-Token: any
+
+### 消息头过滤器验证
+http://localhost:8090/api/v1/products/1
+Authorization: Bearer xxx

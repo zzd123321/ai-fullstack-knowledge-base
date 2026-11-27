@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务器
+        server-addr: 127.0.0.1:8848
+        # 命名空间（留空使用public）
+        namespace: public
+        # 分组（默认DEFAULT_GROUP）
+        group: DEFAULT_GROUP

@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务器
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+        group: DEFAULT_GROUP
+        metadata:
+          env: dev
+          version: v2

@@ -1,0 +1,200 @@
+{
+  "title": "Spring Cloud Alibaba",
+  "author": "郑天民",
+  "description": "面向全栈应用开发，这门Spring Cloud Alibaba课程精心提炼了必备的Spring Cloud Alibaba生态技术栈。以微服务架构与治理思想为纲，以项目实战为轴，让您充分拥抱AI Coding时代，用Spring Cloud Alibaba技术栈从容应对分布式、云原生与全栈开发需求。",
+  "playerPath": "AI大全栈 / Java / Spring Cloud Alibaba",
+  "resourceUrl": "gitee.com/dev-edu/spring-cloud",
+  "skills": [
+	"微服务架构",
+	"Spring Cloud Alibaba",
+	"微服务拆分",
+	"服务接口设计",
+	"公共模块设计",,
+	"微服务注册中心",
+	"Nacos",
+	"Nacos集群部署",
+	"Nacos服务注册",
+	"注册配置共享",
+	"服务注册高级特性",
+	"服务发现",
+	"DiscoveryClient",
+	"Nacos分级模型",
+	"Namespace环境隔离",
+	"Group服务分组",
+	"Nacos多环境切换",
+	"Nacos元数据",
+	"Nacos权重与路由",
+	"Nacos API和SDK",
+	"远程调用和OpenFeign",
+	"@FeignClient注解",
+	"Feign接口继承",
+	"OpenFeign拦截器",
+	"OpenFeign集成LoadBalancer",
+	"远程读写超时、重试和幂等",
+	"Spring Cloud LoadBalancer",
+	"@LoadBalanced注解",
+	"负载均衡算法类型和特性",
+	"自定义负载均衡算法",
+	"平滑加权轮询算法",
+	"标签化负载均衡",
+	"灰度发布",
+	"Nacos Config",
+	"配置管理",
+	"配置分级模型",
+	"DataId",
+	"配置灰度发布",
+	"服务网关",
+	"Spring Cloud Gateway",
+	"路由配置",
+	"断言工厂",
+	"过滤器工厂",
+	"全局过滤器",
+	"网关异常处理",
+	"消息中间件",
+	"RocketMQ",
+	"消息同步发送",
+	"消息异步发送",
+	"消息集群消费",
+	"消息广播消费",
+  ],
+  "type": "录播",
+  "status": "已上架",
+  "catalog": [
+    {
+      "title": "课程导言",
+      "showIndex": true
+    },
+	{
+      "title": "微服务架构与案例系统初始化",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Cloud Alibaba技术栈集成",
+      "showIndex": true
+    },
+	{
+      "title": "微服务拆分与接口设计",
+      "showIndex": true
+    },
+	{
+      "title": "公共模块建设",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos部署与快速上手",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos高可用集群搭建",
+      "showIndex": true
+    },
+	{
+      "title": "图书服务注册到Nacos",
+      "showIndex": true
+    },
+	{
+      "title": "用户与订单服务注册",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos服务发现实战",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos分级模型与Namespace环境隔离",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos Group分组与多环境切换",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos权重路由",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos API 专题",
+      "showIndex": true
+    },
+	{
+      "title": "OpenFeign快速上手",
+      "showIndex": true
+    },
+	{
+      "title": "OpenFeign核心注解详解",
+      "showIndex": true
+    },
+	{
+      "title": "OpenFeign拦截器",
+      "showIndex": true
+    },
+	{
+      "title": "OpenFeign与LoadBalancer集成",
+      "showIndex": true
+    },
+	{
+      "title": "订单-图书远程调用重构",
+      "showIndex": true
+    },
+	{
+      "title": "Spring Cloud LoadBalancer快速上手",
+      "showIndex": true
+    },
+	{
+      "title": "负载均衡算法与LoadBalancer",
+      "showIndex": true
+    },
+	{
+      "title": "自定义负载均衡算法",
+      "showIndex": true
+    },
+	{
+      "title": "标签化负载均衡与灰度发布",
+      "showIndex": true
+    },
+	{
+      "title": "Nacos Config集成与配置迁移",
+      "showIndex": true
+    },
+	{
+      "title": "配置分级模型与DataId实战",
+      "showIndex": true
+    },
+	{
+      "title": "配置灰度发布实战",
+      "showIndex": true
+    },
+	{
+      "title": "Gateway快速上手与请求转发",
+      "showIndex": true
+    },
+	{
+      "title": "路由配置与断言工厂实战",
+      "showIndex": true
+    },
+	{
+      "title": "过滤器工厂实战",
+      "showIndex": true
+    },
+	{
+      "title": "自定义全局过滤器实战",
+      "showIndex": true
+    },
+	{
+      "title": "Gateway全局异常处理",
+      "showIndex": true
+    },
+	{
+      "title": "RocketMQ部署与第一个消息",
+      "showIndex": true
+    },
+	{
+      "title": "RocketMQ消息发送方式实战",
+      "showIndex": true
+    },
+	{
+      "title": "RocketMQ消息消费方式实战",
+      "showIndex": true
+    }
+  ]
+}

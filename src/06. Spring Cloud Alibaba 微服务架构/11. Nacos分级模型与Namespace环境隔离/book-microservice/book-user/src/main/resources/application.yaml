@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: book-user
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务器
+        server-addr: 127.0.0.1:8848
+        namespace: test
+        group: DEFAULT_GROUP
+        metadata:
+          env: test
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book_user_db
+    username: postgres
+    password: admin
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto

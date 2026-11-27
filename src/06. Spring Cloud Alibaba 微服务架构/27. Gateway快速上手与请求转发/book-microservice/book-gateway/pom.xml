@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>book-microservice</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>book-gateway</artifactId>
+    <packaging>jar</packaging>
+    <name>book-gateway</name>
+    <description>服务网关</description>
+
+    <dependencies>
+        <!-- 内部模块：book-common 中的 web 依赖应保持 provided 范围 -->
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>book-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Spring Cloud Gateway（SCA 2025.0.0.0 / Spring Cloud 2025.0.0 新坐标） -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway-server-webflux</artifactId>
+        </dependency>
+
+        <!-- Nacos 服务发现（lb:// 依赖它） -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <!-- 可观测性/健康检查（可选，推荐） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,54 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: book-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+
+---
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: book-product-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/products/**
+            - id: book-product-strip-route
+              uri: lb://book-product
+              predicates:
+                - Path=/product-service/**
+              filters:
+                - StripPrefix=1
+            - id: book-product-rewrite-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/v1/**
+              filters:
+                - RewritePath=/api/v1/(?<segment>.*), /api/$\{segment}
+            - id: book-user-route
+              uri: lb://book-user
+              predicates:
+                - Path=/api/users/**
+            - id: book-order-route
+              uri: lb://book-order
+              predicates:
+                - Path=/api/orders/**
+
+
+#spring:
+#  cloud:
+#    gateway:
+#      server:
+#        webflux:
+#          discovery:
+#            locator:
+#              enabled: true

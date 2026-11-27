@@ -1,0 +1,89 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: book-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+
+---
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          default-filters:
+            - AddResponseHeader=X-Gateway-Processed, true
+          routes:
+            - id: book-product-v1-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/v1/products/**
+              filters:
+                - RewritePath=/api/v1/(?<segment>.*), /api/$\{segment}
+                - RemoveRequestHeader=Authorization
+
+            - id: book-product-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/products/**
+              filters:
+                - AddRequestHeader=X-Request-Source, gateway
+
+            - id: book-product-admin-write-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/products
+                - Method=POST
+                - Header=X-Admin-Token, .+
+            - id: book-product-search-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/products/search
+                - Query=keyword
+#            - id: book-product-route
+#              uri: lb://book-product
+#              predicates:
+#                - Path=/api/products/**
+            - id: book-product-strip-route
+              uri: lb://book-product
+              predicates:
+                - Path=/product-service/**
+              filters:
+                - StripPrefix=1
+            - id: book-product-rewrite-route
+              uri: lb://book-product
+              predicates:
+                - Path=/api/v1/**
+              filters:
+                - RewritePath=/api/v1/(?<segment>.*), /api/$\{segment}
+            - id: book-user-route
+              uri: lb://book-user
+              predicates:
+                - Path=/api/users/**
+
+            - id: book-order-read-route
+              uri: lb://book-order
+              predicates:
+                - Path=/api/orders/**
+                - Method=GET
+            - id: book-order-write-route
+              uri: lb://book-order
+              predicates:
+                - Path=/api/orders/**
+                - Method=POST,PUT,DELETE
+            - id: book-order-route
+              uri: lb://book-order
+              predicates:
+                - Path=/api/orders/**
+
+
+logging:
+  level:
+    # 针对路由匹配的核心类，输出 TRACE 级别日志（会显示匹配过程）
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: TRACE
